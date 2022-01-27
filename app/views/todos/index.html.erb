@@ -3,16 +3,18 @@
 <h1>Todos</h1>
 
 
-
+<div data-controller="drag" data-drag-url="/todos/:id/move">
   <% @todos.each do |todo| %>
     <tr>
-      <td><%= todo.description %></td>
+      <div class="card card-body data-id="<%= todo.id %>" mb-4">
+        <td><%= todo.description %></td>
+      </div>
       <td><%= link_to 'Show', todo %></td>
       <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
       <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
-
+</div>
 
 <br>
 
